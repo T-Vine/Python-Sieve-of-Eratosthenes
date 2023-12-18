@@ -1,3 +1,4 @@
+from turtle import *
 def sieve(number):
     numberList: [int] = [_ for _ in range(2, number)]
     markedList: [int] = []
@@ -13,9 +14,11 @@ def sieve(number):
         for x in range(numberList.index(numberList[i]**2), len(numberList), numberList[i]): # (Optimisation) Any numbers less than the square will be marked off already. E.g. if 6*6=36, any number smaller than 36 must have another multiple smaller than 6.
             markedList.append(numberList[x]) # We could have done this by looping through each number above the square and checking if the modulo was 0. In doing this with intervals of the number, the multiples are found easier.
             
-    print(completedList)
+    return completedList
             
 
 if __name__ == "__main__":
     upTo: int = int(input("Enter the number you want primes to be found up to: "))
-    sieve(upTo)
+    primes = sieve(upTo)
+    print(primes);
+    increment = 0
